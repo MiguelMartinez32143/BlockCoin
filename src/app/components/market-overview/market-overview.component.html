@@ -1,0 +1,59 @@
+<section id="market" class="section">
+    <div class="section-container">
+        <div appScrollReveal>
+            <h2 class="section-title">Resumen del Mercado</h2>
+            <p class="section-subtitle">Datos globales del mercado de criptomonedas en tiempo real.</p>
+        </div>
+
+        @if (data(); as d) {
+        <div class="cards-grid">
+            <div class="glass-card metric-card" appScrollReveal [revealDelay]="0">
+                <div class="card-icon cap-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                    </svg>
+                </div>
+                <span class="card-label">Capitalización Total</span>
+                <span class="card-value" [appCountUp]="d.totalMarketCap / 1e9" countPrefix="$" countSuffix="B"
+                    [countDecimals]="1"></span>
+                <div class="card-bar">
+                    <div class="bar-fill bar-fill-1"></div>
+                </div>
+            </div>
+
+            <div class="glass-card metric-card" appScrollReveal [revealDelay]="120">
+                <div class="card-icon btc-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.908 1.042-.347 1.97m1.563-8.864c4.924.869 6.14-6.025 1.215-6.893m-1.215 6.893-3.94-.694m5.155-6.2L8.29 4.26m5.908 1.042.348-1.97M7.48 20.364l3.126-17.727" />
+                    </svg>
+                </div>
+                <span class="card-label">Dominio de BTC</span>
+                <span class="card-value" [appCountUp]="d.btcDominance" countSuffix="%" [countDecimals]="1"></span>
+                <div class="card-bar">
+                    <div class="bar-fill bar-fill-2"></div>
+                </div>
+            </div>
+
+            <div class="glass-card metric-card" appScrollReveal [revealDelay]="240">
+                <div class="card-icon vol-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3v18h18" />
+                        <path d="m19 9-5 5-4-4-3 3" />
+                    </svg>
+                </div>
+                <span class="card-label">Volumen 24h</span>
+                <span class="card-value" [appCountUp]="d.volume24h / 1e9" countPrefix="$" countSuffix="B"
+                    [countDecimals]="1"></span>
+                <div class="card-bar">
+                    <div class="bar-fill bar-fill-3"></div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</section>

@@ -1,0 +1,291 @@
+.form-layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 24px;
+    align-items: start;
+}
+
+.form-card {
+    padding: 36px;
+}
+
+.buy-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.form-group input {
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(252, 213, 53, 0.10);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.form-group input::placeholder {
+    color: rgba(156, 163, 175, 0.5);
+}
+
+.input-with-prefix {
+    position: relative;
+}
+
+.input-with-prefix .prefix {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.input-with-prefix input {
+    padding-left: 32px;
+    width: 100%;
+}
+
+/* BTC Display */
+.btc-display {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+}
+
+.btc-display:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.btc-display .btc-icon-sym {
+    font-size: 1.3rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.btc-display .btc-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+.btc-display .btc-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.date-display {
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+/* Success State */
+.success-state {
+    text-align: center;
+    padding: 48px 24px;
+    animation: fadeInScale 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(14, 203, 129, 0.15);
+    color: var(--positive);
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    animation: scaleIn 0.4s ease, pulseSuccess 2s ease infinite 0.4s;
+}
+
+.success-state h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.success-state p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulseSuccess {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(14, 203, 129, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 0 12px rgba(14, 203, 129, 0);
+    }
+}
+
+/* Info Panel */
+.info-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    padding: 28px;
+}
+
+.info-card h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+/* Price card pulse */
+.price-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.price-display {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 4px;
+}
+
+.price-label {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+
+.price-pulse {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 10px;
+    height: 10px;
+    background: var(--positive);
+    border-radius: 50%;
+    animation: pricePulse 2s ease infinite;
+}
+
+@keyframes pricePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(14, 203, 129, 0.5);
+    }
+
+    50% {
+        opacity: 0.6;
+        box-shadow: 0 0 0 8px rgba(14, 203, 129, 0);
+    }
+}
+
+.steps-list {
+    counter-reset: steps;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.steps-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+.steps-list li:hover {
+    color: var(--text-primary);
+}
+
+.steps-list li::before {
+    content: counter(steps);
+    min-width: 28px;
+    height: 28px;
+    background: rgba(252, 213, 53, 0.10);
+    color: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.steps-list li:hover::before {
+    transform: scale(1.1);
+}
+
+@media (max-width: 900px) {
+    .form-layout {
+        grid-template-columns: 1fr;
+    }
+}

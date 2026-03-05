@@ -1,0 +1,22 @@
+<nav [class.scrolled]="isScrolled()">
+    <div class="nav-container">
+        <a class="logo" (click)="scrollTo('hero')">
+            <span class="logo-icon">₿</span>
+            <span class="logo-text">Block<span class="logo-highlight">Coin</span></span>
+        </a>
+
+        <ul class="nav-links" [class.open]="mobileMenuOpen()">
+            <li><a (click)="scrollTo('market')">Mercado</a></li>
+            <li><a (click)="scrollTo('metrics')">Métricas</a></li>
+            <li><a (click)="scrollTo('chart')">Gráfico</a></li>
+            <li><a (click)="scrollTo('buy')">Comprar BTC</a></li>
+            <li><a (click)="scrollTo('transactions')">Transacciones</a></li>
+        </ul>
+
+        <button class="mobile-toggle" (click)="toggleMenu()" [attr.aria-label]="'Menú'">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </div>
+</nav>

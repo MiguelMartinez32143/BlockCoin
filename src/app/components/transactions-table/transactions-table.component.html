@@ -1,0 +1,48 @@
+<section id="transactions" class="section">
+    <div class="section-container">
+        <div appScrollReveal>
+            <h2 class="section-title">Historial de Transacciones</h2>
+            <p class="section-subtitle">Consulta todas tus compras simuladas de Bitcoin aquí.</p>
+        </div>
+
+        <div class="glass-card table-card" appScrollReveal>
+            @if (transactionService.transactions().length > 0) {
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>USD Invertido</th>
+                            <th>Monto BTC</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (tx of transactionService.transactions(); track tx.date + tx.email) {
+                        <tr class="row-animate">
+                            <td>
+                                <div class="name-cell">
+                                    <span class="avatar">{{ tx.name.charAt(0) }}</span>
+                                    {{ tx.name }}
+                                </div>
+                            </td>
+                            <td class="text-secondary">{{ tx.email }}</td>
+                            <td>${{ tx.usdAmount | number:'1.2-2' }}</td>
+                            <td class="text-accent">₿ {{ tx.btcAmount | number:'1.8-8' }}</td>
+                            <td class="text-secondary">{{ tx.date }}</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            } @else {
+            <div class="empty-state">
+                <div class="empty-icon">📊</div>
+                <h3>Sin Transacciones Aún</h3>
+                <p>Usa el simulador de compras arriba para crear tu primera transacción simulada.</p>
+            </div>
+            }
+        </div>
+    </div>
+</section>

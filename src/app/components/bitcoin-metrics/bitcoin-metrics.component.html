@@ -1,0 +1,55 @@
+<section id="metrics" class="section">
+    <div class="section-container">
+        <div appScrollReveal>
+            <h2 class="section-title">Métricas de Bitcoin</h2>
+            <p class="section-subtitle">Indicadores clave de la criptomoneda líder del mundo.</p>
+        </div>
+
+        @if (btc(); as b) {
+        <div class="metrics-grid">
+            <div class="glass-card data-card" appScrollReveal [revealDelay]="0">
+                <div class="card-indicator indicator-accent"></div>
+                <span class="data-label">Precio BTC</span>
+                <span class="data-value">${{ b.price | number:'1.2-2' }}</span>
+                <span class="data-tag">USD</span>
+            </div>
+
+            <div class="glass-card data-card" appScrollReveal [revealDelay]="100">
+                <div class="card-indicator" [class.indicator-positive]="b.change24h >= 0"
+                    [class.indicator-negative]="b.change24h < 0"></div>
+                <span class="data-label">Cambio 24h</span>
+                <span class="data-value" [class.text-positive]="b.change24h >= 0"
+                    [class.text-negative]="b.change24h < 0">
+                    {{ b.change24h >= 0 ? '+' : '' }}{{ b.change24h | number:'1.2-2' }}%
+                </span>
+                <span class="data-tag" [class.tag-positive]="b.change24h >= 0" [class.tag-negative]="b.change24h < 0">
+                    @if (b.change24h >= 0) {
+                    ▲ Alcista
+                    } @else {
+                    ▼ Bajista
+                    }
+                </span>
+            </div>
+
+            <div class="glass-card data-card" appScrollReveal [revealDelay]="200">
+                <div class="card-indicator indicator-accent"></div>
+                <span class="data-label">Cap. de Mercado</span>
+                <span class="data-value">${{ (b.marketCap / 1e9) | number:'1.0-0' }}B</span>
+                <span class="data-tag">USD</span>
+            </div>
+
+            <div class="glass-card data-card" appScrollReveal [revealDelay]="300">
+                <div class="card-indicator indicator-purple"></div>
+                <span class="data-label">Volumen 24h</span>
+                <span class="data-value">${{ (b.volume / 1e9) | number:'1.1-1' }}B</span>
+                <span class="data-tag">USD</span>
+            </div>
+        </div>
+        } @else {
+        <div class="loading">
+            <div class="loading-spinner"></div>
+            Cargando datos de Bitcoin...
+        </div>
+        }
+    </div>
+</section>

@@ -1,0 +1,59 @@
+<section id="hero" class="hero">
+    <!-- Parallax Background -->
+    <div class="hero-bg" [style.transform]="'translateY(' + parallaxOffset() + 'px)'">
+        <div class="grid-pattern"></div>
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+        <div class="floating-coins">
+            <span class="coin coin-1">₿</span>
+            <span class="coin coin-2">Ξ</span>
+            <span class="coin coin-3">◈</span>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="hero-content section-container">
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Datos del Mercado en Vivo
+        </div>
+        <h1 class="hero-title">
+            El Futuro de las<br />
+            <span class="text-accent">Finanzas Digitales</span>
+        </h1>
+        <p class="hero-subtitle">
+            Rastrea datos de criptomonedas en tiempo real, analiza tendencias del mercado y
+            simula compras de Bitcoin — todo en un panel premium.
+        </p>
+        <div class="hero-actions">
+            <button class="btn-accent" (click)="scrollTo('buy')">
+                Comenzar a Invertir
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </button>
+            <button class="btn-outline" (click)="scrollTo('market')">
+                Explorar Mercado
+            </button>
+        </div>
+
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-value">$2.54T</span>
+                <span class="stat-label">Cap. de Mercado</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-value">150+</span>
+                <span class="stat-label">Criptomonedas</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-value">24/7</span>
+                <span class="stat-label">Seguimiento en Vivo</span>
+            </div>
+        </div>
+    </div>
+</section>

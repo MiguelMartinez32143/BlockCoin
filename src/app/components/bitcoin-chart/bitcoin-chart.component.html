@@ -1,0 +1,23 @@
+<section id="chart" class="section">
+    <div class="section-container">
+        <div class="chart-header" appScrollReveal>
+            <div>
+                <h2 class="section-title">Gráfico de Precio de Bitcoin</h2>
+                <p class="section-subtitle">Datos históricos de precios con rangos de tiempo interactivos.</p>
+            </div>
+            <div class="range-controls">
+                @for (range of ranges; track range) {
+                <button class="range-btn" [class.active]="activeRange() === range" (click)="selectRange(range)">
+                    {{ range }}
+                </button>
+                }
+            </div>
+        </div>
+
+        <div class="glass-card chart-card" appScrollReveal>
+            <div class="chart-wrapper">
+                <canvas baseChart [type]="'line'" [data]="chartData()" [options]="chartOptions"></canvas>
+            </div>
+        </div>
+    </div>
+</section>
